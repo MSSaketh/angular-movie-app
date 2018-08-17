@@ -1,7 +1,7 @@
 export class MovieDetails {
-     movieId: number;
-     movieName: string;
+    // public movieId: number;
+    public movieName: string;
     //  movieRating: number;
     //  movieDesc: string;
-     movieYear: number;
+    public movieYear: number;
 }

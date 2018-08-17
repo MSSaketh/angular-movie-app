@@ -32,18 +32,22 @@ export class SearchService {
     console.log(delurl);
     return this.http.delete(delurl).pipe(
       map((response1: Response) => {
-        return response1.json();
+        return response1.json;
       })
     );
   }
 
-  addMovie(mve) {
+  //   addMovie(mve) {
+  //     const addurl = 'http://localhost:8090/api/v1/movieservice/movie';
+  //     console.log(addurl);
+  //     return this.http.post(addurl, mve).pipe(
+  //       map((response2: Response) => {
+  //         return response2.json;
+  //       })
+  //     );
+
+  addMovie(movie: MovieDetails): Observable<MovieDetails> {
     const addurl = 'http://localhost:8090/api/v1/movieservice/movie';
-    console.log(addurl);
-    return this.http.post(addurl, mve).pipe(
-      map((response2: Response) => {
-        return response2.json();
-      })
-    );
+    return this.http.post<MovieDetails>(addurl, movie);
   }
 }

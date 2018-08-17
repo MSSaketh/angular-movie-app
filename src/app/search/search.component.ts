@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { SearchService } from '../search.service';
 import {Router} from '@angular/router';
+import { MovieDetails } from '../movie';
+
 
 @Component({
   selector: 'app-search',
@@ -10,7 +12,7 @@ import {Router} from '@angular/router';
 export class SearchComponent implements OnInit {
   title: String;
   movies = [];
-  movie;
+  movie = new MovieDetails();
   // result: Object;
   constructor(private router: Router , private omdbService: SearchService) {}
 
@@ -26,11 +28,15 @@ export class SearchComponent implements OnInit {
   }
 
   onWorking(mve) {
-    this.omdbService
-      .addMovie(mve)
-      .subscribe(data => (this.movie = data));
-    console.log(this.movie);
-    return this.movie;
+    // console.log(mve);
+  //  return this.omdbService
+  //     .addMovie(mve)
+  //     .subscribe(data => (this.movie = data));
+    // console.log(this.movie);
+    // return this.movie;
+    this.movie.movieName = mve.Title;
+    this.movie.movieYear = mve.Year;
+    return this.omdbService.addMovie(this.movie).subscribe(data => (this.movie = data));
   }
   ngOnInit() {}
 }

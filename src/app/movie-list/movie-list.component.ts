@@ -24,5 +24,4 @@ export class MovieListComponent implements OnInit {
       .getWhishList()
       .subscribe(fullList => (this.movieList = fullList));
   }
-  addMovie() {}
 }
