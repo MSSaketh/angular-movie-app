@@ -1,28 +1,28 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { AppComponent } from './app.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
-import { AppRoutingModule } from './/app-routing.module';
-import { MywishlistComponent } from './mywishlist/mywishlist.component';
-import { OmdbSearchComponent } from './omdb-search/omdb-search.component';
 import { FormsModule } from '@angular/forms';
-import { OmdbSearchService } from './omdb-search.service';
-import { HttpModule } from '@angular/http';
+import { AppRoutingModule } from './app-routing.module';
+import { AppComponent } from './app.component';
+import { HeaderComponent } from './header/header.component';
+import { FooterComponent } from './footer/footer.component';
+import { SearchService } from './search.service';
+import { SearchComponent } from './search/search.component';
+import { MovieListComponent } from './movie-list/movie-list.component';
+import { HttpClientModule } from '@angular/common/http';
+
+
 
 @NgModule({
   declarations: [
-    AppComponent,
-    DashboardComponent,
-    MywishlistComponent,
-    OmdbSearchComponent
+    AppComponent, HeaderComponent, FooterComponent, SearchComponent, MovieListComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
     FormsModule,
-    HttpModule
+    AppRoutingModule,
+    HttpClientModule
   ],
-  providers: [OmdbSearchService],
+  providers: [SearchService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

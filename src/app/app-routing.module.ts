@@ -1,23 +1,16 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
-import { DashboardComponent } from './dashboard/dashboard.component';
-import { MywishlistComponent } from './mywishlist/mywishlist.component';
-import { OmdbSearchComponent } from './omdb-search/omdb-search.component';
+import { Routes, RouterModule } from '@angular/router';
+import { MovieListComponent } from './movie-list/movie-list.component';
+import { SearchComponent } from './search/search.component';
 
-const routes: Routes = [
-  {path: 'dashboard', component: DashboardComponent },
-  {path: '', component: DashboardComponent },
-  {path: 'mywishlist', component: MywishlistComponent },
-  {path: 'omdb', component: OmdbSearchComponent }
-];
+const routes: Routes = [{ path: '', component: SearchComponent },
+{ path: 'search', component: SearchComponent },
+{ path: 'movie-list', component: MovieListComponent }];
 
 @NgModule({
-  imports: [
-    RouterModule.forRoot(routes)
-  ],
-  exports: [
-      RouterModule
-  ]
+  imports: [RouterModule.forRoot(routes)],
+  exports: [RouterModule]
 })
 export class AppRoutingModule { }
-export const routingComponents = [DashboardComponent, MywishlistComponent];
+
+export const routingComponents = [ MovieListComponent, SearchComponent ];

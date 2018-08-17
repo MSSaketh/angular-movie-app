@@ -1,0 +1,10 @@
+<div class="card">
+  <div class="card-header">{{movieTitle}}</div>
+  <div *ngFor="let data of movieList" class="card-body">
+    <h2>{{data.movieId}})</h2>
+    <h3>{{data.movieName}}</h3>
+    <h3>{{data.movieYear}}</h3>
+    <!-- <h3>{{data.movieRating}}</h3> -->
+<button (click) = "onWorking(data.movieId)">delete</button>
+  </div>
+</div>
